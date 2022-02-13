@@ -100,4 +100,35 @@ class BonusServiceTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void shouldRegisteredAndMaxBonus() {
+        BonusService service = new BonusService();
+
+        //подготовливаем данные
+        long amount = 1_000_000_00;
+        boolean registered = true;
+        long expected = 500;
+
+        //вызываем целевой метод
+        long actual = service.calculate(amount, registered);
+
+        //производим проверку
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldNotRegisteredAndMaxBonus() {
+        BonusService service = new BonusService();
+
+        //подготовливаем данные
+        long amount = 1_000_000_00;
+        boolean registered = false;
+        long expected = 500;
+
+        //вызываем целевой метод
+        long actual = service.calculate(amount, registered);
+
+        //производим проверку
+        assertEquals(expected, actual);
+    }
 }
